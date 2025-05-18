@@ -12,5 +12,6 @@ router.post("/add-cart", upload.single("photo"), addToCart);
 
 // GET route to get cart items for a user
 router.get("/get-cart/:userId", cartController.getCartItems);
+router.get("/get-all-cart", cartController.getAllCartItems);
 
 module.exports = router;

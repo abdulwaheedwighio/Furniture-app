@@ -44,3 +44,13 @@ exports.getCartItems = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+
+exports.getAllCartItems = async (req, res) => {
+  try {
+    const allCarts = await Cart.find().populate("products.product"); // Adjust population if needed
+    res.status(200).json(allCarts);
+  } catch (error) {
+    console.error("Error fetching all carts:", error);
+    res.status(500).json({ message: "Error fetching all cart data." });
+  }
+};
